@@ -4,17 +4,18 @@ import { formatDollar } from "@/lib/utils";
 
 interface DataCardsProps {
   state: string;
-  costRecords: Cost[];
+  records: Cost[];
 }
 
-export default function DataCards({ state, costRecords }: DataCardsProps) {
+export default function DataCards({ state, records }: DataCardsProps) {
+  console.log(records);
   return (
     <div className="grid grid-rows-2 gap-4">
       <div className="grid grid-cols-3 gap-4">
         {/* Average Price */}
         <div className="col-span-1 flex flex-col justify-between p-4 border border-gray-200 h-48">
           <h2 className="text-md">Average Price</h2>
-          <p className="text-6xl">{formatDollar(costRecords[costRecords.length-1].percent50)}</p>
+          <p className="text-6xl">{formatDollar(records[records.length-1].percent50)}</p>
           <h3 className="text-gray-600">{state}</h3>
         </div>
         {/* Price range chart */}
