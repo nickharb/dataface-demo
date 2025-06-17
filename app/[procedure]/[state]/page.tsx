@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useData } from "@/context/DataContext";
 import DataCards from "@/components/DataCards";
@@ -28,6 +28,19 @@ export default function ProcedurePage() {
   const sourceOptions = useMemo(() => {
     return Array.from(new Set(costRecords.map((r) => r.source))).sort();
   }, [costRecords]);
+
+  // Set default values from options
+  useEffect(() => {
+    if (insuranceOptions.length > 0 && !selectedInsurance) {
+      setSelectedInsurance(insuranceOptions[0]);
+    }
+  }, [insuranceOptions, selectedInsurance]);
+
+  useEffect(() => {
+    if (sourceOptions.length > 0 && !selectedSource) {
+      setSelectedSource(sourceOptions[0]);
+    }
+  }, [sourceOptions, selectedSource]);
 
   const filteredRecords = useMemo(() => {
     return costRecords.filter((record) => {
