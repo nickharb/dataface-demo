@@ -11,6 +11,15 @@ interface DataCardsProps {
 }
 
 export default function DataCards({ state, records }: DataCardsProps) {
+  if (!records || records.length === 0) {
+    return (
+      <div className="py-8">
+        <h1 className="text-xl font-bold">Procedure not found</h1>
+        <p className="text-gray-600">We couldn’t find data for that combination.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="grid gap-4">
       <div className="grid grid-cols-3 gap-4">

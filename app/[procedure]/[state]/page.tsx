@@ -62,7 +62,12 @@ export default function ProcedurePage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">{label.label} Costs in {state}</h1>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold mb-2">{label.label} Costs in {state}</h1>
+        {label.label_detailed &&
+          <h2>{label.label_detailed}</h2>
+        }
+      </div>
       <div className="flex gap-4 mb-6">
         <FilterSelect
           label="Insurance"

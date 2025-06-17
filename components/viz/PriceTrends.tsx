@@ -25,7 +25,7 @@ export default function PriceTrends({ records }: PriceTrendsProps) {
       }));
 
     const plot = Plot.plot({
-      width: 640,
+      width: 900,
       height: 220,
       x: {
         type: "linear",
